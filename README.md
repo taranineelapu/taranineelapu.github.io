@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # research-website-template
 
 This is a React + Next.js template meant for research websites. See a [demo of the template here](https://tovacinni.github.io/research-website-template/). My own [personal website](https://tovacinni.github.io) is also built with the same template.
@@ -113,3 +114,6 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 ## Contributing
 
 Feel free to drop a pull request whenever!
+=======
+Portfolio website
+>>>>>>> 16842eb697c20b02695ae7c7e527c44110e2ef63
