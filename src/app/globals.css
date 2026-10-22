@@ -206,3 +206,53 @@ body {
 .stagger-children>*:nth-child(7) {
   transition-delay: 480ms;
 }
+
+
+/* ==========================================
+   AUTOMATIC PROFILE PHOTO ROTATION
+   ========================================== */
+
+/* Target the container of the first profile image */
+.profile-image-rotation :has(> img):not(:has(> img ~ img)) {
+  position: relative;
+}
+
+/* Display second photo on top of original photo */
+.profile-image-rotation :has(> img):not(:has(> img ~ img))::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("/logos/self-picture-2.jpeg");
+  background-size: cover;
+  background-position: center;
+  border-radius: inherit;
+  pointer-events: none;
+
+  animation: profilePhotoCrossfade 8s ease-in-out infinite;
+}
+
+/* Smooth transition between the two photos */
+@keyframes profilePhotoCrossfade {
+
+  0%,
+  40% {
+    opacity: 0;
+  }
+
+  50%,
+  90% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .profile-image-rotation :has(> img)::after {
+    animation: none;
+    opacity: 0;
+  }
+}

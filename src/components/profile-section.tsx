@@ -1,3 +1,6 @@
+
+"use client";
+
 import Image from "next/image";
 import {
   Github,
@@ -8,12 +11,36 @@ import {
   GraduationCap,
 } from "lucide-react";
 import { AboutMe } from "@/data/aboutme";
+import { useState, useEffect } from "react";
 
 interface ProfileSectionProps {
   aboutMe: AboutMe;
 }
 
 export function ProfileSection({ aboutMe }: ProfileSectionProps) {
+  const [isHovered, setIsHovered] = useState(false);
+  const [showSecondPhoto, setShowSecondPhoto] = useState(false);
+
+  // Automatically show the second photo for 2 seconds every 5 seconds
+  useEffect(() => {
+    let timeout: ReturnType<typeof setTimeout> | undefined;
+
+    const interval = setInterval(() => {
+      setShowSecondPhoto(true);
+
+      timeout = setTimeout(() => {
+        setShowSecondPhoto(false);
+      }, 2000);
+    }, 5000);
+
+    return () => {
+      clearInterval(interval);
+      if (timeout) clearTimeout(timeout);
+    };
+  }, []);
+
+  const showAlternatePhoto = showSecondPhoto || isHovered;
+
   if (!aboutMe) {
     return null;
   }
@@ -22,13 +49,30 @@ export function ProfileSection({ aboutMe }: ProfileSectionProps) {
     <div className="md:sticky top-12 flex flex-row-reverse md:flex-col gap-4 md:space-y-8">
       {aboutMe.imageUrl && (
         <div className="w-1/3 md:w-full flex-shrink-0">
-          <div className="relative max-h-[45vh] md:w-[65%] aspect-[3/4]">
+          <div
+            className="relative max-h-[45vh] md:w-[65%] aspect-[3/4]"
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+          >
+            {/* First profile photo */}
             <Image
-              src={aboutMe.imageUrl}
+              src="/logos/self-picture.jpeg"
               alt={aboutMe.name}
               fill
               priority
-              className="object-cover rounded-xl"
+              sizes="(max-width: 768px) 33vw, 220px"
+              className={`object-cover rounded-xl transition-opacity duration-700 ${showAlternatePhoto ? "opacity-0" : "opacity-100"
+                }`}
+            />
+
+            {/* Second profile photo */}
+            <Image
+              src="/logos/self-picture-2.jpeg"
+              alt={`${aboutMe.name} alternate photo`}
+              fill
+              sizes="(max-width: 768px) 33vw, 220px"
+              className={`object-cover rounded-xl transition-opacity duration-700 ${showAlternatePhoto ? "opacity-100" : "opacity-0"
+                }`}
             />
           </div>
         </div>
@@ -61,7 +105,7 @@ export function ProfileSection({ aboutMe }: ProfileSectionProps) {
           ) : (
             aboutMe.institution
           )}
-            */}
+          */}
         </p>
 
         {aboutMe.location && (
