@@ -1,0 +1,208 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #FAF8F4;
+  --foreground: #2d2d2d;
+  --neural: #00674F;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: var(--source-serif-font), Georgia, serif;
+}
+
+/* Elements marked with serif class */
+.font-serif,
+.serif {
+  font-family:
+    ui-serif,
+    var(--font-pt-serif),
+    var(--font-noto-serif),
+    Georgia,
+    serif;
+}
+
+/* Elements marked with sans class */
+.font-sans,
+.sans {
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+}
+
+/* Snoopy animation */
+@keyframes snoopy-bounce {
+
+  0%,
+  100% {
+    transform: translateY(0) scaleX(1);
+  }
+
+  50% {
+    transform: translateY(-6px) scaleX(1);
+  }
+}
+
+@keyframes snoopy-enter {
+  from {
+    transform: translateX(-80px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.snoopy-enter {
+  animation: snoopy-enter 1.2s ease-out forwards;
+}
+
+.snoopy-bounce {
+  animation: snoopy-bounce 2.5s ease-in-out infinite;
+}
+
+/* Fade-in animation */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.8s ease-out forwards;
+}
+
+/* Status indicator */
+@keyframes pulse-dot {
+
+  0%,
+  100% {
+    opacity: 1;
+    box-shadow: 0 0 0 0 rgba(72, 187, 120, 0.5);
+  }
+
+  50% {
+    opacity: 0.8;
+    box-shadow: 0 0 0 6px rgba(72, 187, 120, 0);
+  }
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  background: #48bb78;
+  border-radius: 50%;
+  display: inline-block;
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+/* Tech stack marquee */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  display: flex;
+  gap: 2rem;
+  animation: marquee 30s linear infinite;
+  width: max-content;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* Project card glow */
+.project-glow {
+  position: relative;
+}
+
+.project-glow::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: 0.75rem;
+  background: linear-gradient(135deg,
+      rgba(183, 199, 214, 0.18),
+      rgba(183, 199, 214, 0.08),
+      rgba(183, 199, 214, 0.18));
+  background-size: 200% 200%;
+  animation: gradient-shift 4s ease infinite;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.project-glow:hover::before {
+  opacity: 1;
+}
+
+@keyframes gradient-shift {
+
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Scroll reveal */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.7s ease-out,
+    transform 0.7s ease-out;
+}
+
+.scroll-reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered children */
+.stagger-children>*:nth-child(1) {
+  transition-delay: 0ms;
+}
+
+.stagger-children>*:nth-child(2) {
+  transition-delay: 80ms;
+}
+
+.stagger-children>*:nth-child(3) {
+  transition-delay: 160ms;
+}
+
+.stagger-children>*:nth-child(4) {
+  transition-delay: 240ms;
+}
+
+.stagger-children>*:nth-child(5) {
+  transition-delay: 320ms;
+}
+
+.stagger-children>*:nth-child(6) {
+  transition-delay: 400ms;
+}
+
+.stagger-children>*:nth-child(7) {
+  transition-delay: 480ms;
+}
