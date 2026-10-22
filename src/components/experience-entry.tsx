@@ -54,11 +54,13 @@ export function ExperienceEntry({ experience }: { experience: Experience }) {
           </p>
         )}
 
+
         {experience.description && (
-          <p className="text-sm text-zinc-600 leading-relaxed mt-2">
+          <p className="text-sm text-zinc-500 leading-relaxed mt-2 whitespace-pre-line">
             {experience.description}
           </p>
         )}
+
       </div>
     </div>
   );

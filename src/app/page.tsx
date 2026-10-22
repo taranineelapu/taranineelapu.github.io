@@ -104,6 +104,7 @@ export default function Home() {
 
                   /* Projects */
                   case Section.Portfolio:
+                    return null;
                     return (
                       portfolioData.length > 0 && (
                         <section key={sectionName}>

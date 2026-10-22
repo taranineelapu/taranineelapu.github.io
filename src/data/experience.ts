@@ -13,7 +13,7 @@ export interface Experience {
 export const experienceData: Experience[] = [
   {
     date: "Feb 2025 - present",
-    title: "AI Data Engineer Intern",
+    title: "Data Engineer",
     company: "Sabhya Technologies",
     description:
       "Built an AI-powered product recommendation chatbot to automate product search and inventory check in manufacturing ERP workflows.",
@@ -34,7 +34,7 @@ export const experienceData: Experience[] = [
     title: "Statistics Tutor",
     company: "University of Wisconsin-Milwaukee",
     description:
-      "Course - Statistical Modeling in Business Analytics\nTopics include: ",
+      "Course - Statistical Modeling in Business Analytics\n• Taught statistical modeling concepts (hypothesis test, causal inference, regression models) & implementing them using R programming language modules and packages.",
     companyUrl: "https://uwm.edu/",
     logoUrl: "/logos/uwm-logo.png",
   },
@@ -43,7 +43,7 @@ export const experienceData: Experience[] = [
     title: "Data Engineer",
     company: "Cognizant Technology Solutions",
     description:
-      "Designed PySpark and Spark SQL pipelines on Azure Databricks to process daily sales data into Snowflake for Zoetis Inc. Optimized ETL workflows using distributed processing, partitioning, and broadcast joins on Delta tables.",
+      "Built multiple ETL data pipelines using PySpark, Spark SQL, and Azure Data Factory on Azure Databricks & Azure Cloud to process daily sales data into Snowflake and Power BI dashboards for Zoetis Inc.",
     logoUrl: "/logos/cognizant-logo.png",
     companyUrl: "https://www.cognizant.com/us/en",
   },
@@ -52,7 +52,7 @@ export const experienceData: Experience[] = [
     title: "Data Engineer Intern",
     company: "Cognizant Technology Solutions",
     description:
-      "Built a data pipeline using PySpark, Azure Databricks, and ADF to process insurance billing data. Developed Power BI dashboards with Power Query and DAX to track customer renewal KPIs.",
+      "• Built end-to-end data pipelines using PySpark, and Azure Databricks to process insurance billing data.\n• Developed Power BI dashboards with Power Query and DAX to track customer renewal KPIs.",
     companyUrl: "https://www.cognizant.com/us/en",
     logoUrl: "/logos/cognizant-logo.png",
   },

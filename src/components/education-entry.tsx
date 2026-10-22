@@ -1,32 +1,35 @@
+
 import Image from "next/image";
 import { Education } from "@/data/education";
 
 export function EducationEntry({ education }: { education: Education }) {
   return (
     <div>
-      <div className="grid grid-cols-[56px_1fr] gap-x-4 mb-2">
+      <div className="grid grid-cols-[64px_minmax(0,1fr)] gap-x-4 mb-2">
 
         {/* Logo */}
         <div className="flex items-start justify-center">
           {education.logoUrl && (
-            <Image
-              src={education.logoUrl}
-              alt={`${education.institution} logo`}
-              width={48}
-              height={48}
-              className="object-contain rounded-lg"
-            />
+            <div className="w-16 h-16 rounded-2xl border border-zinc-200 bg-white flex items-center justify-center p-2">
+              <Image
+                src={education.logoUrl}
+                alt={`${education.institution} logo`}
+                width={48}
+                height={48}
+                className="object-contain"
+              />
+            </div>
           )}
         </div>
 
-        {/* Existing layout */}
-        <div className="grid grid-cols-4 gap-x-2">
+        {/* Education details */}
+        <div className="grid grid-cols-4 gap-x-2 min-w-0">
 
           <span className="text-xs text-zinc-500 mt-1">
             {education.year}
           </span>
 
-          <div className="col-span-3">
+          <div className="col-span-3 min-w-0">
 
             <h3 className="text-base mb-1 font-serif">
               {education.institution}
@@ -81,6 +84,7 @@ export function EducationEntry({ education }: { education: Education }) {
               </p>
             )}
 
+            {/* Advisor */}
             {education.advisor && (
               <p className="text-sm text-zinc-500 mt-2 italic">
                 Advisor: {education.advisor}

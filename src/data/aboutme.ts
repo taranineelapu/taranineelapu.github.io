@@ -25,7 +25,7 @@ export const aboutMe: AboutMe = {
   location: "Seattle, WA",
   // Note that links work in the description
   description:
-    "Hi there! I'm a data engineer",
+    "Hi there! I'm a data engineer building distributed data pipelines, perform statistical analysis and collaborate with stake holders to identify business improvement opportunities. I’m passionate about improving data processing efficiency, strengthening metric integrity, and transforming complex datasets into insights that drive measurable impact across financial, sales, and operations.",
   email: "neelaputarani@gmail.com",
   imageUrl:
     "/logos/self-picture.jpeg",
